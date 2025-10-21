@@ -218,3 +218,214 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Animated background stars (optional)
+function createStars() {
+    const body = document.querySelector('body');
+    const starsCount = 50;
+    
+    for (let i = 0; i < starsCount; i++) {
+        const star = document.createElement('div');
+        star.style.position = 'fixed';
+        star.style.width = Math.random() * 3 + 'px';
+        star.style.height = star.style.width;
+        star.style.background = 'white';
+        star.style.borderRadius = '50%';
+        star.style.left = Math.random() * 100 + 'vw';
+        star.style.top = Math.random() * 100 + 'vh';
+        star.style.opacity = Math.random() * 0.7 + 0.3;
+        star.style.pointerEvents = 'none';
+        star.style.zIndex = '-1';
+        star.style.animation = `twinkle ${Math.random() * 3 + 2}s infinite alternate`;
+        body.appendChild(star);
+    }
+}
+
+// Add this CSS for twinkling animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes twinkle {
+        0% { opacity: 0.3; }
+        100% { opacity: 1; }
+    }
+`;
+document.head.appendChild(style);
+
+
+// Call this in DOMContentLoaded if you want animated stars
+// document.addEventListener('DOMContentLoaded', createStars);
+
+
+
+// PlayStation Matrix Background (Optional)
+function createPSMatrix() {
+    const matrixContainer = document.createElement('div');
+    matrixContainer.className = 'ps-matrix';
+    document.body.appendChild(matrixContainer);
+
+    const psSymbols = ['◯', '△', '✕', '□', 'PS', '●', '▲', '■'];
+    const colors = ['#0061ff', '#0072ce', '#ffffff', '#00ff88'];
+    
+    for (let i = 0; i < 30; i++) {
+        const symbol = document.createElement('div');
+        symbol.className = 'ps-letter';
+        symbol.textContent = psSymbols[Math.floor(Math.random() * psSymbols.length)];
+        symbol.style.left = Math.random() * 100 + 'vw';
+        symbol.style.animationDelay = Math.random() * 10 + 's';
+        symbol.style.color = colors[Math.floor(Math.random() * colors.length)];
+        symbol.style.fontSize = (Math.random() * 20 + 15) + 'px';
+        matrixContainer.appendChild(symbol);
+    }
+}
+
+// Call this in DOMContentLoaded if you want the matrix effect
+// document.addEventListener('DOMContentLoaded', createPSMatrix);
+
+// Advanced Filtering System
+class GameFilters {
+    constructor() {
+        this.currentCategory = 'all';
+        this.currentPrice = 'all';
+        this.currentRating = 0;
+        this.currentSort = 'featured';
+        this.initFilters();
+    }
+
+    initFilters() {
+        // Category filter
+        const categoryButtons = document.querySelectorAll('.filter-btn');
+        categoryButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                this.currentCategory = e.target.getAttribute('data-category');
+                this.applyFilters();
+            });
+        });
+
+        // Price filter
+        const priceFilter = document.getElementById('price-filter');
+        if (priceFilter) {
+            priceFilter.addEventListener('change', (e) => {
+                this.currentPrice = e.target.value;
+                this.applyFilters();
+            });
+        }
+
+        // Rating filter
+        const ratingFilter = document.getElementById('rating-filter');
+        if (ratingFilter) {
+            ratingFilter.addEventListener('change', (e) => {
+                this.currentRating = parseInt(e.target.value);
+                this.applyFilters();
+            });
+        }
+
+        // Sort filter
+        const sortFilter = document.getElementById('sort-by');
+        if (sortFilter) {
+            sortFilter.addEventListener('change', (e) => {
+                this.currentSort = e.target.value;
+                this.applyFilters();
+            });
+        }
+    }
+
+    applyFilters() {
+        const products = document.querySelectorAll('.product-card');
+        let visibleCount = 0;
+
+        products.forEach(product => {
+            const category = product.getAttribute('data-category');
+            const price = parseFloat(product.getAttribute('data-price'));
+            const rating = parseFloat(product.getAttribute('data-rating'));
+            const name = product.getAttribute('data-name');
+
+            // Category filter
+            const categoryMatch = this.currentCategory === 'all' || category === this.currentCategory;
+            
+            // Price filter
+            let priceMatch = true;
+            if (this.currentPrice !== 'all') {
+                const [min, max] = this.currentPrice.split('-').map(Number);
+                priceMatch = price >= min && (max ? price <= max : true);
+            }
+
+            // Rating filter
+            const ratingMatch = rating >= this.currentRating;
+
+            // Show/hide based on filters
+            if (categoryMatch && priceMatch && ratingMatch) {
+                product.style.display = 'block';
+                visibleCount++;
+            } else {
+                product.style.display = 'none';
+            }
+        });
+
+        // Sort products
+        this.sortProducts(products);
+
+        // Update active category buttons
+        this.updateActiveButtons();
+    }
+
+    sortProducts(products) {
+        const productsArray = Array.from(products).filter(p => p.style.display !== 'none');
+        const container = document.querySelector('.products-grid');
+
+        productsArray.sort((a, b) => {
+            const aPrice = parseFloat(a.getAttribute('data-price'));
+            const bPrice = parseFloat(b.getAttribute('data-price'));
+            const aRating = parseFloat(a.getAttribute('data-rating'));
+            const bRating = parseFloat(b.getAttribute('data-rating'));
+            const aName = a.getAttribute('data-name');
+            const bName = b.getAttribute('data-name');
+
+            switch (this.currentSort) {
+                case 'price-low':
+                    return aPrice - bPrice;
+                case 'price-high':
+                    return bPrice - aPrice;
+                case 'rating':
+                    return bRating - aRating;
+                case 'name':
+                    return aName.localeCompare(bName);
+                default: // featured
+                    return 0;
+            }
+        });
+
+        // Reorder products in DOM
+        productsArray.forEach(product => {
+            container.appendChild(product);
+        });
+    }
+
+    updateActiveButtons() {
+        const categoryButtons = document.querySelectorAll('.filter-btn');
+        categoryButtons.forEach(btn => {
+            if (btn.getAttribute('data-category') === this.currentCategory) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+}
+
+// Initialize filters when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // ... your existing DOMContentLoaded code ...
+    
+    // Initialize filters
+    const gameFilters = new GameFilters();
+    
+    // Add click handlers for review toggle (optional)
+    const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            if (!e.target.classList.contains('add-to-cart')) {
+                this.classList.toggle('expanded');
+            }
+        });
+    });
+});
