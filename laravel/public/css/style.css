@@ -262,3 +262,10 @@ main {
 .review-stars { color: #ffd700; }
 .review-text { color: #fff; font-style: italic; }
 .review-game { color: #90ee90; font-weight: bold; }
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #000000;
+    color: #fff;
+}
