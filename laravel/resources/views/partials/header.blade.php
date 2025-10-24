@@ -1,4 +1,4 @@
-<!-- <header>
+<header>
     <nav>
         <div class="logo">
             <h1>OmniPlay</h1>
@@ -10,8 +10,8 @@
             <li><a href="/cart">Cart (<span id="cart-count">0</span>)</a></li>
         </ul>
     </nav>
-</header> -->
-
+</header>
+<!-- 
 <header>
     <nav>
         <div class="logo">
@@ -24,4 +24,4 @@
             <li><a href="/cart" class="{{ request()->is('cart') ? 'active' : '' }}">🛒 CART (<span id="cart-count">0</span>)</a></li>
         </ul>
     </nav>
-</header>
+</header> -->

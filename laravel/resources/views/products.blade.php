@@ -3,9 +3,6 @@
 @section('content')
 <h1>All Games</h1>
 
-<div class="category-filter">
-    <button class="filter-btn active" data-category="all">All Games</button>
-</div>
 
 <div class="filters-row">
     <div class="filter-group">
@@ -44,7 +41,7 @@
 <div class="products-grid">
     <!-- Cyberpunk 2077 -->
     <div class="product-card" data-category="windows" data-price="49.99" data-rating="4.5" data-name="Cyberpunk 2077">
-        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg" alt="Cyberpunk 2077">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt-dZ8u_dXZ4-AhDROEpQNiXqh9VNbGH1B9g&s" alt="Cyberpunk 2077">
         <h3>Cyberpunk 2077</h3>
         <p class="category">Windows</p>
         <div class="rating">

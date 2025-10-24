@@ -4,7 +4,7 @@
 <div class="hero">
     <h1>Welcome to OmniPlay</h1>
     <p>Your ultimate destination for Windows PC games!</p>
-    <a href="/products" class="btn">Shop Now</a>
+    <a href="/products" class="nav-links1">Shop Now</a>
 </div>
 
 <section class="featured-products">
