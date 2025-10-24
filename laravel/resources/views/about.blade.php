@@ -6,7 +6,7 @@
     <p>Welcome to OmniPlay, your number one source for all types of games. We're dedicated to providing you the very best of gaming experience.</p>
     
     <h2>Our Mission</h2>
-    <p>To bring the joy of gaming to everyone, everywhere with our wide collection of Windows, Console, and Handheld games.</p>
+    <p>To bring the joy of PC gaming to everyone, everywhere with our wide collection of Windows games.</p>
     
     <h2>Why Choose Us?</h2>
     <ul>
