@@ -25,6 +25,11 @@
                         🛒 Cart (<span id="cart-count">0</span>)
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/admin/products" class="nav-link {{ request()->is('/admin/products') ? 'active fw-bold' : '' }}">
+                        🛠️ Admin Panel
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>

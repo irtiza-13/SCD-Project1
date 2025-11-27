@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('home');
@@ -22,3 +23,18 @@ Route::get('/checkout', function () {
     return view('checkout');
 });
 
+Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
+
+
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/api/products', [ProductController::class, 'apiAll']);
+
+Route::prefix('admin/products')->name('admin.products.')->group(function () {
+    Route::get('/', [ProductController::class, 'adminIndex'])->name('index');
+    Route::get('/create', [ProductController::class, 'create'])->name('create');
+    Route::post('/store', [ProductController::class, 'store'])->name('store');
+    Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
+    Route::post('/update/{id}', [ProductController::class, 'update'])->name('update');
+    Route::delete('/delete/{id}', [ProductController::class, 'destroy'])->name('delete');
+});
