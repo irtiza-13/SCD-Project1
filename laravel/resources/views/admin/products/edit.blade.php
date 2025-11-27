@@ -39,4 +39,16 @@
 
         <div class="mb-3">
             <label class="form-label">Rating (1-5)</label>
-            <input type="number" name="rating" class="form-control" step="0.1" value="{{ old('ratin
+            <input type="number" name="rating" class="form-control" step="0.1" value="{{ old('rating', $product->rating) }}" min="1" max="5" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Image URL</label>
+            <input type="url" name="image" class="form-control" value="{{ old('image', $product->image) }}" required>
+        </div>
+
+        <button type="submit" class="btn btn-success">Update Product</button>
+        <a href="{{ route('admin.products.index') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+@endsection
