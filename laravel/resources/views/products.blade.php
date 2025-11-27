@@ -3,7 +3,6 @@
 @section('content')
 <h1>All Games</h1>
 
-
 <div class="filters-row">
     <div class="filter-group">
         <label for="price-filter">Price Range:</label>
@@ -43,13 +42,13 @@
     <div class="product-card" data-category="windows" data-price="49.99" data-rating="4.5" data-name="Cyberpunk 2077">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt-dZ8u_dXZ4-AhDROEpQNiXqh9VNbGH1B9g&s" alt="Cyberpunk 2077">
         <h3>Cyberpunk 2077</h3>
+        <p class="description">Open-world RPG set in a dystopian future Night City</p>
         <p class="category">Windows</p>
         <div class="rating">
             ⭐⭐⭐⭐⭐ <span class="rating-text">4.5/5</span>
         </div>
         <p class="price">$49.99</p>
         <button class="add-to-cart" data-id="1" data-name="Cyberpunk 2077" data-price="49.99">Add to Cart</button>
-        
         
         <div class="reviews">
             <div class="review">
@@ -67,6 +66,7 @@
     <div class="product-card" data-category="windows" data-price="29.99" data-rating="4.8" data-name="GTA V">
         <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg" alt="Grand Theft Auto V">
         <h3>GTA V</h3>
+        <p class="description">Crime adventure in the massive open world of Los Santos</p>
         <p class="category">Windows</p>
         <div class="rating">
             ⭐⭐⭐⭐⭐ <span class="rating-text">4.8/5</span>
@@ -90,6 +90,7 @@
     <div class="product-card" data-category="windows" data-price="39.99" data-rating="4.6" data-name="The Witcher 3">
         <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg" alt="The Witcher 3">
         <h3>The Witcher 3</h3>
+        <p class="description">Epic fantasy RPG as monster slayer Geralt of Rivia</p>
         <p class="category">Windows</p>
         <div class="rating">
             ⭐⭐⭐⭐⭐ <span class="rating-text">4.6/5</span>
@@ -113,6 +114,7 @@
     <div class="product-card" data-category="windows" data-price="59.99" data-rating="4.8" data-name="Elden Ring">
         <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" alt="Elden Ring">
         <h3>Elden Ring</h3>
+        <p class="description">Open-world action RPG from the creators of Dark Souls</p>
         <p class="category">Windows</p>
         <div class="rating">
             ⭐⭐⭐⭐⭐ <span class="rating-text">4.8/5</span>
@@ -136,6 +138,7 @@
     <div class="product-card" data-category="windows" data-price="59.99" data-rating="4.9" data-name="Red Dead Redemption 2">
         <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg" alt="Red Dead Redemption 2">
         <h3>Red Dead Redemption 2</h3>
+        <p class="description">Western epic following outlaw Arthur Morgan's journey</p>
         <p class="category">Windows</p>
         <div class="rating">
             ⭐⭐⭐⭐⭐ <span class="rating-text">4.9/5</span>
@@ -159,6 +162,7 @@
     <div class="product-card" data-category="windows" data-price="39.99" data-rating="4.7" data-name="Doom Eternal">
         <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/782330/header.jpg" alt="Doom Eternal">
         <h3>Doom Eternal</h3>
+        <p class="description">Fast-paced FPS where you battle demons across dimensions</p>
         <p class="category">Windows</p>
         <div class="rating">
             ⭐⭐⭐⭐⭐ <span class="rating-text">4.7/5</span>
@@ -182,6 +186,7 @@
     <div class="product-card" data-category="windows" data-price="0.00" data-rating="4.8" data-name="Counter-Strike 2">
         <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg" alt="Counter-Strike 2">
         <h3>Counter-Strike 2</h3>
+        <p class="description">Legendary tactical team-based first-person shooter</p>
         <p class="category">Windows</p>
         <div class="rating">
             ⭐⭐⭐⭐⭐ <span class="rating-text">4.8/5</span>
@@ -205,6 +210,7 @@
     <div class="product-card" data-category="windows" data-price="59.99" data-rating="4.9" data-name="Baldur's Gate 3">
         <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg" alt="Baldur's Gate 3">
         <h3>Baldur's Gate 3</h3>
+        <p class="description">Dungeons & Dragons CRPG with deep storytelling</p>
         <p class="category">Windows</p>
         <div class="rating">
             ⭐⭐⭐⭐⭐ <span class="rating-text">4.9/5</span>
@@ -228,6 +234,7 @@
     <div class="product-card" data-category="windows" data-price="69.99" data-rating="4.3" data-name="Starfield">
         <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1716740/header.jpg" alt="Starfield">
         <h3>Starfield</h3>
+        <p class="description">Space exploration RPG from Bethesda Game Studios</p>
         <p class="category">Windows</p>
         <div class="rating">
             ⭐⭐⭐⭐ <span class="rating-text">4.3/5</span>
@@ -251,6 +258,7 @@
     <div class="product-card" data-category="windows" data-price="59.99" data-rating="4.7" data-name="Hogwarts Legacy">
         <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/990080/header.jpg" alt="Hogwarts Legacy">
         <h3>Hogwarts Legacy</h3>
+        <p class="description">Open-world RPG set in the Harry Potter universe</p>
         <p class="category">Windows</p>
         <div class="rating">
             ⭐⭐⭐⭐⭐ <span class="rating-text">4.7/5</span>
@@ -274,6 +282,7 @@
     <div class="product-card" data-category="windows" data-price="59.99" data-rating="4.8" data-name="Resident Evil 4">
         <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/header.jpg" alt="Resident Evil 4">
         <h3>Resident Evil 4</h3>
+        <p class="description">Survival horror remake of the classic zombie adventure</p>
         <p class="category">Windows</p>
         <div class="rating">
             ⭐⭐⭐⭐⭐ <span class="rating-text">4.8/5</span>
@@ -297,6 +306,7 @@
     <div class="product-card" data-category="windows" data-price="69.99" data-rating="4.2" data-name="Call of Duty: MW3">
         <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1938090/header.jpg" alt="Call of Duty: Modern Warfare III">
         <h3>Call of Duty: MW3</h3>
+        <p class="description">Intense military FPS with campaign and multiplayer</p>
         <p class="category">Windows</p>
         <div class="rating">
             ⭐⭐⭐⭐ <span class="rating-text">4.2/5</span>
@@ -320,6 +330,7 @@
     <div class="product-card" data-category="windows" data-price="59.99" data-rating="4.8" data-name="Forza Horizon 5">
         <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg" alt="Forza Horizon 5">
         <h3>Forza Horizon 5</h3>
+        <p class="description">Open-world racing adventure set in vibrant Mexico</p>
         <p class="category">Windows</p>
         <div class="rating">
             ⭐⭐⭐⭐⭐ <span class="rating-text">4.8/5</span>
@@ -343,6 +354,7 @@
     <div class="product-card" data-category="windows" data-price="39.99" data-rating="4.5" data-name="Sea of Thieves">
         <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172620/header.jpg" alt="Sea of Thieves">
         <h3>Sea of Thieves</h3>
+        <p class="description">Multiplayer pirate adventure on the high seas</p>
         <p class="category">Windows</p>
         <div class="rating">
             ⭐⭐⭐⭐⭐ <span class="rating-text">4.5/5</span>

@@ -22,15 +22,3 @@ Route::get('/checkout', function () {
     return view('checkout');
 });
 
-// Optional: Category-specific routes
-Route::get('/products/windows', function () {
-    return view('products', ['category' => 'windows']);
-});
-
-Route::get('/products/console', function () {
-    return view('products', ['category' => 'console']);
-});
-
-Route::get('/products/handheld', function () {
-    return view('products', ['category' => 'handheld']);
-});
