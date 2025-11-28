@@ -4,115 +4,45 @@
 <div class="row">
     <div class="col-md-8">
         <h1 style="color: #8b5cf6;">Shopping Cart</h1>
-        
+
         <div id="cart-items" class="cart-items-container">
-            <!-- Dummy Cart Items -->
-            <div class="cart-item">
-                <div class="item-image">
-                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg" alt="The Witcher 3">
-                </div>
-                <div class="item-details">
-                    <h4 style="color: #111827; margin: 0 0 5px 0;">The Witcher 3: Wild Hunt</h4>
-                    <p style="color: #6b7280; margin: 0; font-size: 0.9em;">Windows • RPG</p>
-                    <div class="rating" style="color: #f59e0b; margin: 5px 0;">⭐⭐⭐⭐⭐ 4.6/5</div>
-                </div>
-                <div class="item-price">
-                    <div class="quantity-controls">
-                        <button class="quantity-btn">-</button>
-                        <span class="quantity">1</span>
-                        <button class="quantity-btn">+</button>
-                    </div>
-                    <div class="price" style="color: #7c3aed; font-weight: bold; font-size: 1.2em;">$39.99</div>
-                    <button class="remove-btn" style="color: #ef4444; background: none; border: none; cursor: pointer;">🗑️ Remove</button>
-                </div>
-            </div>
-
-            <div class="cart-item">
-                <div class="item-image">
-                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" alt="Elden Ring">
-                </div>
-                <div class="item-details">
-                    <h4 style="color: #111827; margin: 0 0 5px 0;">Elden Ring</h4>
-                    <p style="color: #6b7280; margin: 0; font-size: 0.9em;">Windows • Action RPG</p>
-                    <div class="rating" style="color: #f59e0b; margin: 5px 0;">⭐⭐⭐⭐⭐ 4.8/5</div>
-                </div>
-                <div class="item-price">
-                    <div class="quantity-controls">
-                        <button class="quantity-btn">-</button>
-                        <span class="quantity">1</span>
-                        <button class="quantity-btn">+</button>
-                    </div>
-                    <div class="price" style="color: #7c3aed; font-weight: bold; font-size: 1.2em;">$59.99</div>
-                    <button class="remove-btn" style="color: #ef4444; background: none; border: none; cursor: pointer;">🗑️ Remove</button>
-                </div>
-            </div>
-
-            <div class="cart-item">
-                <div class="item-image">
-                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg" alt="Counter-Strike 2">
-                </div>
-                <div class="item-details">
-                    <h4 style="color: #111827; margin: 0 0 5px 0;">Counter-Strike 2</h4>
-                    <p style="color: #6b7280; margin: 0; font-size: 0.9em;">Windows • FPS</p>
-                    <div class="rating" style="color: #f59e0b; margin: 5px 0;">⭐⭐⭐⭐⭐ 4.8/5</div>
-                </div>
-                <div class="item-price">
-                    <div class="quantity-controls">
-                        <button class="quantity-btn">-</button>
-                        <span class="quantity">1</span>
-                        <button class="quantity-btn">+</button>
-                    </div>
-                    <div class="price" style="color: #10b981; font-weight: bold; font-size: 1.2em;">Free to Play</div>
-                    <button class="remove-btn" style="color: #ef4444; background: none; border: none; cursor: pointer;">🗑️ Remove</button>
-                </div>
-            </div>
+            <!-- JS will inject cart items here -->
         </div>
     </div>
-    
+
     <div class="col-md-4">
         <div class="order-summary">
             <h3 style="color: #f59e0b;">Order Summary</h3>
-            
+
             <div class="summary-details">
                 <div class="summary-row">
-                    <span style="color: #6b7280;">Subtotal (3 items):</span>
-                    <span style="color: #111827;">$<span id="subtotal">99.98</span></span>
+                    <span style="color: #6b7280;">Subtotal:</span>
+                    <span style="color: #111827;">$<span id="subtotal">0.00</span></span>
                 </div>
                 <div class="summary-row">
                     <span style="color: #6b7280;">Shipping:</span>
-                    <span style="color: #10b981;">$<span id="shipping">0.00</span></span>
+                    <span style="color: #10b981;">$0.00</span>
                 </div>
                 <div class="summary-row">
-                    <span style="color: #6b7280;">Tax:</span>
-                    <span style="color: #ef4444;">$<span id="tax">8.99</span></span>
+                    <span style="color: #6b7280;">Tax (10%):</span>
+                    <span style="color: #ef4444;">$<span id="tax">0.00</span></span>
                 </div>
+
                 <hr style="border-color: #d1d5db;">
                 <div class="summary-row total-row">
                     <strong style="color: #111827;">Total:</strong>
-                    <strong style="color: #7c3aed;">$<span id="cart-total">108.97</span></strong>
+                    <strong style="color: #7c3aed;">$<span id="cart-total">0.00</span></strong>
                 </div>
             </div>
-            
+
             <div class="order-details">
                 <h4 style="color: #f59e0b;">Order Details</h4>
                 <div class="detail-item">
                     <span style="color: #6b7280;">Items in Cart:</span>
-                    <span style="color: #7c3aed;" id="item-count">3</span>
-                </div>
-                <div class="detail-item">
-                    <span style="color: #6b7280;">Delivery:</span>
-                    <span style="color: #10b981;">Free Shipping</span>
-                </div>
-                <div class="detail-item">
-                    <span style="color: #6b7280;">Estimated Delivery:</span>
-                    <span style="color: #f59e0b;">2-3 business days</span>
-                </div>
-                <div class="detail-item">
-                    <span style="color: #6b7280;">Savings:</span>
-                    <span style="color: #10b981;">$10.00</span>
+                    <span style="color: #7c3aed;" id="item-count">0</span>
                 </div>
             </div>
-            
+
             <div class="cart-actions">
                 <a href="/products" class="continue-shopping">🔄 Continue Shopping</a>
                 <a id="checkout-btn" class="checkout-btn" href="/checkout">🚀 Proceed to Checkout</a>
@@ -124,6 +54,130 @@
         </div>
     </div>
 </div>
+
+{{-- KEEP YOUR CSS UNCHANGED (not rewriting here) --}}
+@endsection
+
+@section('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    const cartItemsContainer = document.getElementById('cart-items');
+    const subtotalElem = document.getElementById('subtotal');
+    const taxElem = document.getElementById('tax');
+    const cartTotalElem = document.getElementById('cart-total');
+    const itemCountElem = document.getElementById('item-count');
+
+    // Load Cart
+    function loadCart() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        cartItemsContainer.innerHTML = "";
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = `
+                <p class="text-center text-muted">Your cart is empty 😢</p>
+            `;
+            updateSummary(cart);
+            return;
+        }
+
+        cart.forEach(item => {
+            const itemHTML = `
+            <div class="cart-item" data-id="${item.id}">
+                <div class="item-image">
+                    <img src="${item.image}" alt="${item.name}">
+                </div>
+
+                <div class="item-details">
+                    <h4 style="color: #111827; margin: 0 0 5px 0;">${item.name}</h4>
+                    <p style="color: #6b7280; margin: 0; font-size: 0.9em;">${item.category ?? ''}</p>
+                </div>
+
+                <div class="item-price">
+                    <div class="quantity-controls">
+                        <button class="quantity-btn decrease">-</button>
+                        <span class="quantity">${item.quantity}</span>
+                        <button class="quantity-btn increase">+</button>
+                    </div>
+
+                    <div class="price" style="color: #7c3aed; font-weight: bold; font-size: 1.2em;">
+                        $${(item.price * item.quantity).toFixed(2)}
+                    </div>
+
+                    <button class="remove-btn" style="color: #ef4444; background: none; border: none; cursor: pointer;">
+                        🗑️ Remove
+                    </button>
+                </div>
+            </div>
+            `;
+
+            cartItemsContainer.innerHTML += itemHTML;
+        });
+
+        updateSummary(cart);
+        addListeners();
+    }
+
+    // Update Summary
+    function updateSummary(cart) {
+        let subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        let tax = subtotal * 0.10;
+        let total = subtotal + tax;
+
+        subtotalElem.textContent = subtotal.toFixed(2);
+        taxElem.textContent = tax.toFixed(2);
+        cartTotalElem.textContent = total.toFixed(2);
+        itemCountElem.textContent = cart.length;
+    }
+
+    // Save cart
+    function save(cart) {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    // Button Listeners
+    function addListeners() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Increase quantity
+        document.querySelectorAll('.increase').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const id = this.closest('.cart-item').dataset.id;
+                const item = cart.find(i => i.id == id);
+                item.quantity++;
+                save(cart);
+                loadCart();
+            });
+        });
+
+        // Decrease quantity
+        document.querySelectorAll('.decrease').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const id = this.closest('.cart-item').dataset.id;
+                const item = cart.find(i => i.id == id);
+                if (item.quantity > 1) item.quantity--;
+                save(cart);
+                loadCart();
+            });
+        });
+
+        // Remove item
+        document.querySelectorAll('.remove-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const id = this.closest('.cart-item').dataset.id;
+                const index = cart.findIndex(i => i.id == id);
+                cart.splice(index, 1);
+                save(cart);
+                loadCart();
+            });
+        });
+    }
+
+    loadCart();
+});
+</script>
+
 
 <style>
 .order-summary {

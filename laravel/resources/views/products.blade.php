@@ -3,6 +3,21 @@
 @section('content')
 <h1>All Games</h1>
 
+{{-- Flash Message --}}
+<div id="flash-message" style="
+    display:none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    z-index: 9999;
+">
+</div>
+
 <div class="filters-row">
     <div class="filter-group">
         <label>Price Range:</label>
@@ -63,7 +78,8 @@
         <button class="add-to-cart"
                 data-id="{{ $p->id }}"
                 data-name="{{ $p->name }}"
-                data-price="{{ $p->price }}">
+                data-price="{{ $p->price }}"
+                data-image="{{ $p->image }}">
             Add to Cart
         </button>
         
@@ -71,5 +87,64 @@
     @endforeach
 
 </div>
+@endsection
 
+
+@section('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    function loadCart() {
+        let cart = localStorage.getItem("cart");
+        return cart ? JSON.parse(cart) : [];
+    }
+
+    function saveCart(cart) {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    function flash(message) {
+        const flashBox = document.getElementById('flash-message');
+        flashBox.textContent = message;
+        flashBox.style.display = 'block';
+
+        setTimeout(() => {
+            flashBox.style.display = 'none';
+        }, 2000);
+    }
+
+    const buttons = document.querySelectorAll('.add-to-cart');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', function () {
+
+            const id = this.dataset.id;
+            const name = this.dataset.name;
+            const price = parseFloat(this.dataset.price);
+            const image = this.dataset.image;   // <-- FIXED (image stored)
+
+            let cart = loadCart();
+
+            let existing = cart.find(item => item.id === id);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    price: price,
+                    image: image, // <-- FIXED
+                    quantity: 1
+                });
+            }
+
+            saveCart(cart);
+
+            flash(name + " added to cart!");
+        });
+    });
+
+});
+</script>
 @endsection

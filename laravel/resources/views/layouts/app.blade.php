@@ -13,7 +13,9 @@
 
     <!-- Your custom stylesheet -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
 </head>
+
 <body>
     @include('partials.header')
 
@@ -23,6 +25,8 @@
 
     @include('partials.footer')
 
-    
+    {{-- ✔ Scripts from child blades will load here --}}
+    @yield('scripts')
+
 </body>
 </html>
