@@ -23,7 +23,7 @@ class AdminController extends Controller
         // For demo: hardcoded admin credentials
         if ($request->username === 'admin' && $request->password === 'password123') {
             session(['admin_logged_in' => true]);
-            return redirect()->route('admin.products.index');
+            return redirect()->route('admin.dashboard.index');
         }
 
         return back()->withErrors(['Invalid credentials']);

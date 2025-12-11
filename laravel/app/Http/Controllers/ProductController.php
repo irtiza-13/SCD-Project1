@@ -16,6 +16,27 @@ class ProductController extends Controller
         return view('products', compact('products'));
     }
 
+
+    public function search(Request $request)
+{
+    $query = $request->input('query');
+    
+    if (strlen($query) < 2) {
+        return response()->json([]);
+    }
+    
+    $searchTerm = str_replace(['%', '_'], ['\%', '\_'], $query);
+    
+    $results = Product::where(function($q) use ($searchTerm) {
+                $q->where('name', 'LIKE', "%{$searchTerm}%")
+                  ->orWhere('category', 'LIKE', "%{$searchTerm}%");
+            })
+            ->limit(10)
+            ->get(['id', 'name', 'category', 'price', 'image', 'rating', 'description']);
+    
+    return response()->json($results);
+}
+
     /**
      * API — Return all products (for AJAX/cart)
      */

@@ -17,6 +17,11 @@
                 <li class="nav-item">
                     <a href="/products" class="nav-link {{ request()->is('products*') ? 'active fw-bold' : '' }}">🎮 Games</a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="/game-subscriptions" class="nav-link {{ request()->is('products*') ? 'active fw-bold' : '' }}">🎮 Subscription</a>
+                </li>
+
                 <li class="nav-item">
                     <a href="/about" class="nav-link {{ request()->is('about') ? 'active fw-bold' : '' }}">ℹ️ About</a>
                 </li>
