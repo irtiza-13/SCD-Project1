@@ -16,33 +16,69 @@ class ProductController extends Controller
         return view('products', compact('products'));
     }
 
-
     public function search(Request $request)
-{
-    $query = $request->input('query');
-    
-    if (strlen($query) < 2) {
-        return response()->json([]);
+    {
+        $query = $request->input('query');
+
+        if (strlen($query) < 2) {
+            return response()->json([]);
+        }
+
+        $searchTerm = str_replace(['%', '_'], ['\%', '\_'], $query);
+
+        $results = Product::where(function($q) use ($searchTerm) {
+                        $q->where('name', 'LIKE', "%{$searchTerm}%")
+                          ->orWhere('category', 'LIKE', "%{$searchTerm}%");
+                    })
+                    ->limit(10)
+                    ->get(['id', 'name', 'category', 'price', 'image', 'rating', 'description']);
+
+        return response()->json($results);
     }
-    
-    $searchTerm = str_replace(['%', '_'], ['\%', '\_'], $query);
-    
-    $results = Product::where(function($q) use ($searchTerm) {
-                $q->where('name', 'LIKE', "%{$searchTerm}%")
-                  ->orWhere('category', 'LIKE', "%{$searchTerm}%");
-            })
-            ->limit(10)
-            ->get(['id', 'name', 'category', 'price', 'image', 'rating', 'description']);
-    
-    return response()->json($results);
-}
 
     /**
-     * API — Return all products (for AJAX/cart)
+     * API — Return all products
      */
     public function apiAll()
     {
-        return Product::all();
+        return response()->json(Product::all(), 200);
+    }
+
+    /**
+     * API — Get single product
+     */
+    public function apiShow($id)
+    {
+        return response()->json(Product::findOrFail($id), 200);
+    }
+
+    /**
+     * API — Store new product
+     */
+    public function apiStore(Request $request)
+    {
+        $product = Product::create($request->all());
+        return response()->json($product, 201);
+    }
+
+    /**
+     * API — Update product
+     */
+    public function apiUpdate(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+        $product->update($request->all());
+
+        return response()->json($product, 200);
+    }
+
+    /**
+     * API — Delete product
+     */
+    public function apiDelete($id)
+    {
+        Product::destroy($id);
+        return response()->json(['message' => 'Product deleted'], 200);
     }
 
     /**
@@ -73,7 +109,7 @@ class ProductController extends Controller
             'category'    => 'required|string|max:255',
             'price'       => 'required|numeric|min:0',
             'rating'      => 'required|numeric|min:1|max:5',
-            'image'       => 'required|url', // Image URL
+            'image'       => 'required|url',
         ]);
 
         Product::create($request->only([
@@ -85,7 +121,7 @@ class ProductController extends Controller
     }
 
     /**
-     * ADMIN — Show Edit Form
+     * ADMIN — Edit Form
      */
     public function edit($id)
     {

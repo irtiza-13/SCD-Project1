@@ -83,4 +83,36 @@ class GameSubscriptionController extends Controller
         return redirect()->route('game-subscriptions.admin.index')
             ->with('success', 'Game subscription deleted successfully!');
     }
+
+
+public function apiAll()
+{
+    return response()->json(GameSubscription::all(), 200);
+}
+
+public function apiShow($id)
+{
+    return response()->json(GameSubscription::findOrFail($id), 200);
+}
+
+public function apiStore(Request $request)
+{
+    $subscription = GameSubscription::create($request->all());
+    return response()->json($subscription, 201);
+}
+
+public function apiUpdate(Request $request, $id)
+{
+    $subscription = GameSubscription::findOrFail($id);
+    $subscription->update($request->all());
+
+    return response()->json($subscription, 200);
+}
+
+public function apiDelete($id)
+{
+    GameSubscription::destroy($id);
+    return response()->json(['message' => 'Subscription deleted'], 200);
+}
+
 }
